@@ -1,0 +1,8 @@
+C:\Include-Studio\IncludeStudio.Util\IncludeStudio.Util.Radar\bin\Debug\netstandard2.0\IncludeStudio.Util.Radar.deps.json
+C:\Include-Studio\IncludeStudio.Util\IncludeStudio.Util.Radar\bin\Debug\netstandard2.0\IncludeStudio.Util.Radar.dll
+C:\Include-Studio\IncludeStudio.Util\IncludeStudio.Util.Radar\bin\Debug\netstandard2.0\IncludeStudio.Util.Radar.pdb
+C:\Include-Studio\IncludeStudio.Util\IncludeStudio.Util.Radar\obj\Debug\netstandard2.0\IncludeStudio.Util.Radar.csproj.CoreCompileInputs.cache
+C:\Include-Studio\IncludeStudio.Util\IncludeStudio.Util.Radar\obj\Debug\netstandard2.0\IncludeStudio.Util.Radar.AssemblyInfoInputs.cache
+C:\Include-Studio\IncludeStudio.Util\IncludeStudio.Util.Radar\obj\Debug\netstandard2.0\IncludeStudio.Util.Radar.AssemblyInfo.cs
+C:\Include-Studio\IncludeStudio.Util\IncludeStudio.Util.Radar\obj\Debug\netstandard2.0\IncludeStudio.Util.Radar.dll
+C:\Include-Studio\IncludeStudio.Util\IncludeStudio.Util.Radar\obj\Debug\netstandard2.0\IncludeStudio.Util.Radar.pdb

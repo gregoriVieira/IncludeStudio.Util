@@ -1,0 +1,5 @@
+C:\Include-Studio\IncludeStudio.Util\IncludeStudio.Util.Domain\bin\Debug\netstandard2.0\IncludeStudio.Util.Domain.deps.json
+C:\Include-Studio\IncludeStudio.Util\IncludeStudio.Util.Domain\bin\Debug\netstandard2.0\IncludeStudio.Util.Domain.dll
+C:\Include-Studio\IncludeStudio.Util\IncludeStudio.Util.Domain\obj\Debug\netstandard2.0\IncludeStudio.Util.Domain.csprojAssemblyReference.cache
+C:\Include-Studio\IncludeStudio.Util\IncludeStudio.Util.Domain\obj\Debug\netstandard2.0\IncludeStudio.Util.Domain.AssemblyInfoInputs.cache
+C:\Include-Studio\IncludeStudio.Util\IncludeStudio.Util.Domain\obj\Debug\netstandard2.0\IncludeStudio.Util.Domain.AssemblyInfo.cs

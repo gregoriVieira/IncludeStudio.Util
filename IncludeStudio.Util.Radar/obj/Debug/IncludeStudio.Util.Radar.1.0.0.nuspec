@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>IncludeStudio.Util.Radar</id>
+    <version>1.0.0</version>
+    <authors>Gregor Gomes Fernandes Vieira</authors>
+    <owners>Gregor Gomes Fernandes Vieira</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework=".NETStandard2.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Include-Studio\IncludeStudio.Util\IncludeStudio.Util.Radar\bin\Debug\netstandard2.0\IncludeStudio.Util.Radar.dll" target="lib\netstandard2.0\IncludeStudio.Util.Radar.dll" />
+  </files>
+</package>

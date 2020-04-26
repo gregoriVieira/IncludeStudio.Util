@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "lPL4rDkTVuRuFDZYRX6cSpGWG9C9jkF8PR9grR5Qm+Xj4pBAwl2YyEOKc7owJ9ZRbVBVQ9LjxbXvw0zLWIgzEQ==",
+  "success": true,
+  "projectFilePath": "C:\\Include-Studio\\IncludeStudio.Util\\IncludeStudio.Util.Radar\\IncludeStudio.Util.Radar.csproj",
+  "expectedPackageFiles": [
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\grego\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
