@@ -1,63 +1,60 @@
 ﻿using IncludeStudio.Util.Domain.Data;
 using IncludeStudio.Util.Domain.Entities;
 using IncludeStudio.Util.Domain.Enums;
+using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace IncludeStudio.Util.Radar
 {
     public static class Logger
     {
-        public static FireBase fireBase = new FireBase();
 
-        public static void StartRadar(string description)
+        /// <summary>
+        /// Start the current map of execution steps , 
+        /// don't need to pass the fileName !
+        /// </summary>
+        /// <param name="authKey"></param>
+        /// <param name="baseUrl"></param>
+        /// <param name="jsonPath"></param>
+        /// <param name="description"></param>
+        /// <param name="fileName"></param>
+        public static void StartRadar(string authKey, string baseUrl, string jsonPath, string description, [CallerFilePath] string fileName = null)
         {
-            try
-            {
-                if (!string.IsNullOrEmpty(description))
-                {
-                    var stackFrame = new StackFrame(1);
+            if (string.IsNullOrEmpty(authKey))
+                throw new Exception("authKey cannot be null");
 
-                    var details = new Details()
-                    {
-                        IdDetails = new Guid(),
-                        RadarType = RadarType.StartRadar,
-                        Description = description,
-                        VariableType = string.Empty,
-                        Value = string.Empty,
-                        FileName = stackFrame.GetFileName(),
-                        Method = stackFrame.GetMethod().Name,
-                        Environment = Environment.MachineName
-                    };
+            if (string.IsNullOrEmpty(baseUrl))
+                throw new Exception("baseUrl cannot be null");
 
-                    fireBase.InsertData(details);
-                }
-            }
-            catch (Exception)
-            {
+            if (string.IsNullOrEmpty(jsonPath))
+                throw new Exception("jsonPath cannot be null");
 
-            }
-        }
+            if (!jsonPath.ToLower().Contains(".json"))
+                throw new Exception("jsonPath need specify the extension");
 
-        public static void Track(this object variable , string description = "")
-        {
             try
             {
                 var stackFrame = new StackFrame(1);
 
+                FireBase.AuthKey = authKey;
+                FireBase.BaseUrl = baseUrl;
+                FireBase.JsonPath = jsonPath;
+
                 var details = new Details()
                 {
-                    IdDetails = new Guid(),
-                    RadarType = RadarType.Track,
+                    RadarType = RadarType.StartRadar.ToString(),
                     Description = description,
-                    VariableType = variable.GetType().Name,
-                    Value = variable.ToString(),
-                    FileName = stackFrame.GetFileName(),
+                    VariableType = string.Empty,
+                    Value = string.Empty,
+                    FileName = fileName,
                     Method = stackFrame.GetMethod().Name,
                     Environment = Environment.MachineName
                 };
 
-                fireBase.InsertData(details);
+                FireBase.InsertData(details);
+
             }
             catch (Exception)
             {
@@ -65,28 +62,34 @@ namespace IncludeStudio.Util.Radar
             }
         }
 
-        public static void Information(string description)
+        /// <summary>
+        /// Register information about the variable on the current map cycle
+        /// </summary>
+        /// <param name="variable"></param>
+        /// <param name="description"></param>
+        /// <param name="fileName"></param>
+        public static void Track(this object variable, string description = "", [CallerFilePath] string fileName = null)
         {
             try
             {
                 var stackFrame = new StackFrame(1);
+                var variableValue = variable.ToString();
 
-                if (!string.IsNullOrEmpty(description))
+                if (variable.GetType().IsGenericType)
+                    variableValue = JsonConvert.SerializeObject(variable);
+
+                var details = new Details()
                 {
-                    var details = new Details()
-                    {
-                        IdDetails = new Guid(),
-                        RadarType = RadarType.Information,
-                        Description = description,
-                        VariableType = string.Empty,
-                        Value = string.Empty,
-                        FileName = stackFrame.GetFileName(),
-                        Method = stackFrame.GetMethod().Name,
-                        Environment = Environment.MachineName
-                    };
+                    RadarType = RadarType.Track.ToString(),
+                    Description = description,
+                    VariableType = variable.GetType().Name,
+                    Value = variableValue,
+                    FileName = fileName,
+                    Method = stackFrame.GetMethod().Name,
+                    Environment = Environment.MachineName
+                };
 
-                    fireBase.InsertData(details);
-                }
+                FireBase.InsertData(details);
             }
             catch (Exception)
             {
@@ -94,7 +97,47 @@ namespace IncludeStudio.Util.Radar
             }
         }
 
-        public static void Error(this Exception exception, string description = "")
+        /// <summary>
+        /// Register information on the current mapping cycle
+        /// </summary>
+        /// <param name="description"></param>
+        /// <param name="fileName"></param>
+        public static void Information(string description, [CallerFilePath] string fileName = null)
+        {
+            if (string.IsNullOrEmpty(description))
+                throw new Exception("description cannot be null or empty");
+
+            try
+            {
+                var stackFrame = new StackFrame(1);
+
+                var details = new Details()
+                {
+                    RadarType = RadarType.Information.ToString(),
+                    Description = description,
+                    VariableType = string.Empty,
+                    Value = string.Empty,
+                    FileName = fileName,
+                    Method = stackFrame.GetMethod().Name,
+                    Environment = Environment.MachineName
+                };
+
+                FireBase.InsertData(details);
+
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// Map Exception information
+        /// </summary>
+        /// <param name="exception"></param>
+        /// <param name="description"></param>
+        /// <param name="fileName"></param>
+        public static void Error(this Exception exception, string description = "", [CallerFilePath] string fileName = null)
         {
             try
             {
@@ -102,18 +145,16 @@ namespace IncludeStudio.Util.Radar
 
                 var details = new Details()
                 {
-                    IdDetails = new Guid(),
-                    RadarType = RadarType.Error,
+                    RadarType = RadarType.Error.ToString(),
                     Description = description,
                     VariableType = exception.GetType().Name,
                     Value = exception.Message,
-                    FileName = stackFrame.GetFileName(),
+                    FileName = fileName,
                     Method = stackFrame.GetMethod().Name,
                     Environment = Environment.MachineName
                 };
 
-                fireBase.InsertData(details);
-
+                FireBase.InsertData(details);
             }
             catch (Exception)
             {

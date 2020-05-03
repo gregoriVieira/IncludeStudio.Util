@@ -6,3 +6,7 @@ C:\Include-Studio\IncludeStudio.Util\IncludeStudio.Util.Radar\obj\Debug\netstand
 C:\Include-Studio\IncludeStudio.Util\IncludeStudio.Util.Radar\obj\Debug\netstandard2.0\IncludeStudio.Util.Radar.AssemblyInfo.cs
 C:\Include-Studio\IncludeStudio.Util\IncludeStudio.Util.Radar\obj\Debug\netstandard2.0\IncludeStudio.Util.Radar.dll
 C:\Include-Studio\IncludeStudio.Util\IncludeStudio.Util.Radar\obj\Debug\netstandard2.0\IncludeStudio.Util.Radar.pdb
+C:\Include-Studio\IncludeStudio.Util\IncludeStudio.Util.Radar\bin\Debug\netstandard2.0\IncludeStudio.Util.Domain.dll
+C:\Include-Studio\IncludeStudio.Util\IncludeStudio.Util.Radar\bin\Debug\netstandard2.0\IncludeStudio.Util.Domain.pdb
+C:\Include-Studio\IncludeStudio.Util\IncludeStudio.Util.Radar\obj\Debug\netstandard2.0\IncludeStudio.Util.Radar.csprojAssemblyReference.cache
+C:\Include-Studio\IncludeStudio.Util\IncludeStudio.Util.Radar\obj\Debug\netstandard2.0\IncludeStudio.Util.Radar.csproj.CopyComplete

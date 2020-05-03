@@ -8,7 +8,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Package Description</description>
     <dependencies>
-      <group targetFramework=".NETStandard2.0" />
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="IncludeStudio.Util.Domain" version="1.0.0" exclude="Build,Analyzers" />
+      </group>
     </dependencies>
   </metadata>
   <files>

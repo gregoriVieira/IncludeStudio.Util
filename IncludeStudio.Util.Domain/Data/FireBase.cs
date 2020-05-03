@@ -6,25 +6,23 @@ using System.Text;
 
 namespace IncludeStudio.Util.Domain.Data
 {
-    public class FireBase
+    public static class FireBase
     {
-        private string baseUrl { get; set; }
-        private string authKey { get; set; }
-        private string jsonPath { get; set; }
-        public FireBase()
-        {
-            baseUrl = string.Empty;
-            authKey = string.Empty;
-            jsonPath = string.Empty;
-        }
+        public static string BaseUrl { get; set; }
+        public static  string AuthKey { get; set; }
+        public static string JsonPath { get; set; }
 
-        public void InsertData(object data)
+        public static void InsertData(object data)
         {
+            if (data == null)
+                throw new Exception("data cannot be null");
+
             try
-            {
+            {      
                 var json = JsonConvert.SerializeObject(data);
 
-                HttpWebRequest request = WebRequest.CreateHttp($"{baseUrl}/{jsonPath}?auth{authKey}");
+                var url = $"{BaseUrl}/{JsonPath}?auth={AuthKey}";
+                HttpWebRequest request = WebRequest.CreateHttp(url);
 
                 request.Method = "POST";
                 request.ContentType = "application/json";
@@ -35,9 +33,9 @@ namespace IncludeStudio.Util.Domain.Data
                 json = (new StreamReader(response.GetResponseStream())).ReadToEnd();
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
+                throw ex;
             }
         }
     }
